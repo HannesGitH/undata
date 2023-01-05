@@ -52,7 +52,9 @@ jobs:
       - run: npm ci
       - run: npm run coverage
       - name: integration test
-        run: npm run test
+        run: |
+          npx playwright install
+          npm run test
 
   release:
     needs: test
