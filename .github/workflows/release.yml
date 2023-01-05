@@ -1,4 +1,4 @@
-name: "release"
+name: 'release'
 on:
   push:
     branches:
@@ -19,7 +19,7 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm run check
-  
+
   format:
     needs: static-check
     runs-on: ubuntu-latest
@@ -58,7 +58,7 @@ jobs:
           output: report-markdown
       - uses: marocchino/sticky-pull-request-comment@v2
         with:
-            message: ${{ steps.coverage.outputs.report }}
+          message: ${{ steps.coverage.outputs.report }}
       - name: integration test
         run: npm run test
 
@@ -77,4 +77,3 @@ jobs:
           name: dist
           path: dist
       # TODO: use github hooks to pull this artifact to own server
-      
