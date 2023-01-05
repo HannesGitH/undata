@@ -5,7 +5,7 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
-		"boild:node": "cross-env ADAPTER=node && vite build",
+		"build:node": "cross-env ADAPTER=node && vite build",
 		"preview": "vite preview",
 		"test": "playwright test",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -14,7 +14,7 @@
 		"coverage": "vitest run --coverage",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write .",
-		"prepare": "husky install"
+		"prepare": "is-ci || husky install"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.28.1",
@@ -27,6 +27,7 @@
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte3": "^4.0.0",
 		"husky": "^8.0.0",
+		"is-ci": "^3.0.1",
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.8.1",
 		"svelte": "^3.54.0",
@@ -34,7 +35,8 @@
 		"tslib": "^2.4.1",
 		"typescript": "^4.9.3",
 		"vite": "^4.0.0",
-		"vitest": "^0.25.3"
+		"vitest": "^0.25.3",
+		"vitest-github-actions-reporter": "^0.9.0"
 	},
 	"type": "module",
 	"dependencies": {

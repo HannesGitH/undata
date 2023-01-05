@@ -6,7 +6,7 @@ on:
       - release
 
 env:
-  node_version: 14
+  node_version: 18.11.0
 
 jobs:
   static-check:
@@ -50,17 +50,11 @@ jobs:
         with:
           node-version: ${{ env.node_version }}
       - run: npm ci
-      - uses: ArtiomTr/jest-coverage-report-action@v2
-        id: coverage
-        with:
-          test-script: npm run coverage
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          output: report-markdown
-      - uses: marocchino/sticky-pull-request-comment@v2
-        with:
-          message: ${{ steps.coverage.outputs.report }}
+      - run: npm run coverage
       - name: integration test
-        run: npm run test
+        run: |
+          npx playwright install
+          npm run test
 
   release:
     needs: test

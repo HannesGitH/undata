@@ -13,7 +13,7 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
-		adapter: PROCESS.ENV.ADAPTER === 'node' ? adapterNode({ out: 'dist' }) : adapterAuto()
+		adapter: process.env.ADAPTER === 'node' ? adapterNode({ out: 'dist' }) : adapterAuto()
 	}
 };
 
