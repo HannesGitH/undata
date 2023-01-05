@@ -12,7 +12,6 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"test:unit": "vitest",
 		"coverage": "vitest run --coverage",
-		"coverage:ci": "npm run coverage -- --outputFile ./coverage/report.json && ./scripts/save-test-coverage.js",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write .",
 		"prepare": "is-ci || husky install"

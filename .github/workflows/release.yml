@@ -50,16 +50,7 @@ jobs:
         with:
           node-version: ${{ env.node_version }}
       - run: npm ci
-      - uses: ArtiomTr/jest-coverage-report-action@v2
-        id: coverage
-        with:
-          coverage-file: ./coverage/report.json
-          test-script: npm run coverage:ci
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          output: report-markdown
-      - uses: marocchino/sticky-pull-request-comment@v2
-        with:
-          message: ${{ steps.coverage.outputs.report }}
+      - run: npm run coverage
       - name: integration test
         run: npm run test
 
