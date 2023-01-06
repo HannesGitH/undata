@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"dev": "vite dev",
+		"dev": "vite dev --host",
 		"build": "vite build",
 		"build:node": "cross-env ADAPTER=node && vite build",
 		"preview": "vite preview",
@@ -42,6 +42,7 @@
 	"dependencies": {
 		"@sveltejs/adapter-node": "^1.0.0",
 		"cross-env": "^7.0.3",
-		"dotenv": "^16.0.3"
+		"dotenv": "^16.0.3",
+		"sdmx-rest": "^2.20.0"
 	}
 }
